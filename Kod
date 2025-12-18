@@ -1,4 +1,8 @@
 #include <iostream> // wejscie / wyjscie
+#include <conio.h> // biblioteka do obslugi klawiatury 
+#include <windows.h> // biblioteka systemowa windows 
+#include <ctime> // do losowania pozycji owocow
+
 
 using namespace std;
 
