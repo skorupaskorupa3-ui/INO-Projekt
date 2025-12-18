@@ -14,3 +14,13 @@ int wynik; // aktualny wynik gracza
 // typ wyliczeniowy dla kierunkow ruchu
 enum eDirecton { STOP = 0, LEWO, PRAWO, GORA, DOL }; // typ wyliczeniowy dla kierunkow
 eDirecton kierunek; // aktualny kierunek ruchu weza
+void ustawienia()
+{
+    koniec_gry = false; // inicjalizacja stanu gry
+    kierunek = STOP; // poczatkowy kierunek na stop
+    x = szerokosc / 2; // umieszczenie glowy x na srodku
+    y = wysokosc / 2; // umieszczenie glowy y na srodku
+    wsp_owocu_X = rand() % szerokosc; // losowanie pozycji x owocu
+    wsp_owocu_Y = rand() % wysokosc; // losowanie pozycji y owocu
+    wynik = 0; // zerowanie wyniku (na poczatku gry)
+}
