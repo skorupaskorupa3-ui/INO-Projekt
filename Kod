@@ -130,3 +130,19 @@ void mechanika_gry()
         
     }
 }
+
+int main()
+{
+    srand(time(0)); // inicjalizacja losowosci za pomoca aktualnego czasu
+    ustawienia(); // ustawienie poczatkowego stanu gry
+
+    while (!koniec_gry) // glowna petla gry
+    {
+        plansza(); // wywolanie funkcji tworzaca plansze 
+        sterowanie(); // obsluga wejscia gracza (sterowanie)
+        mechanika_gry(); // przetwarzanie logiki (ruch, kolizje)
+        Sleep(50); // opoznienie 50 milisekund (kontroluje to predkosc gry)
+    }
+
+    return 0;
+}
