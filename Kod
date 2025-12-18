@@ -1,1 +1,16 @@
+#include <iostream> // wejscie / wyjscie
 
+using namespace std;
+
+//zmienne globalne 
+bool koniec_gry; // stan gry - true oznacza koniec
+const int szerokosc = 20; // stala szerokosc planszy 
+const int wysokosc = 20; // stala wysokosc planszy
+int x, y; // wspolrzedne (x,y) glowy weza
+int wsp_owocu_X, wsp_owocu_Y; // wspolrzedne (x,y) owocu
+int wynik; // aktualny wynik gracza
+
+
+// typ wyliczeniowy dla kierunkow ruchu
+enum eDirecton { STOP = 0, LEWO, PRAWO, GORA, DOL }; // typ wyliczeniowy dla kierunkow
+eDirecton kierunek; // aktualny kierunek ruchu weza
