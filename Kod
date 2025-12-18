@@ -25,6 +25,7 @@ void ustawienia()
     wsp_owocu_Y = rand() % wysokosc; // losowanie pozycji y owocu
     wynik = 0; // zerowanie wyniku (na poczatku gry)
 }
+
 void plansza()
 {
     system("cls"); // czyszczenie ekranu konsoli
