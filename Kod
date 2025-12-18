@@ -25,3 +25,43 @@ void ustawienia()
     wsp_owocu_Y = rand() % wysokosc; // losowanie pozycji y owocu
     wynik = 0; // zerowanie wyniku (na poczatku gry)
 }
+void plansza()
+{
+    system("cls"); // czyszczenie ekranu konsoli
+
+
+    for (int i = 0; i < szerokosc + 2; i++) // tworzenie sufitu
+        cout << "#";
+    cout << endl;
+
+
+    for (int i = 0; i < wysokosc; i++) // kreowanie scian
+    {
+
+        for (int j = 0; j < szerokosc; j++)
+        {
+            if (j == 0)
+                cout << "#"; // lewa sciana
+
+            if (i == y && j == x)
+                cout << "O";    // symbol "O" to glowa weza 
+            else if (i == wsp_owocu_Y && j == wsp_owocu_X)
+                cout << "F";    // symbol "F" to owoce do zbierania
+            else
+            {
+                
+                cout << " "; // jesli nic nie narysowano, zostaw puste pole
+            }
+
+            if (j == szerokosc - 1)
+                cout << "#"; // prawa sciana
+        }
+        cout << endl;
+    }
+
+    for (int i = 0; i < szerokosc + 2; i++) // tworzenie podlogi
+        cout << "#";
+    cout << endl;
+
+    cout << "wynik:" << wynik << endl; // licznik punktow
+}
