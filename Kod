@@ -65,3 +65,68 @@ void plansza()
 
     cout << "wynik:" << wynik << endl; // licznik punktow
 }
+
+void sterowanie()
+{
+    if (_kbhit()) // sprawdzenie, czy klawisz zostal nacisniety (biblioteka conio.h)
+    {
+        switch (_getch()) // sterowanie weza (awsd)
+        {
+        case 'a':
+            kierunek = LEWO;
+            break;
+        case 'd':
+            kierunek = PRAWO;
+            break;
+        case 'w':
+            kierunek = GORA;
+            break;
+        case 's':
+            kierunek = DOL;
+            break;
+        case 'x':
+            koniec_gry = true; // wyjscie z gry za pomoca klawisza x
+            break;
+        }
+    }
+}
+
+void mechanika_gry()
+{
+    
+
+    switch (kierunek) // aktualizacja wspolrzednych na podstawie kierunku wybranego przez uzytkownika
+    {
+    case LEWO:
+        x--;
+        break;
+    case PRAWO:
+        x++;
+        break;
+    case GORA:
+        y--;
+        break;
+    case DOL:
+        y++;
+        break;
+    default:
+        break;
+    }
+
+    // teleportacja przez sciany (poziomo / pionowo)
+    if (x >= szerokosc) x = 0; // wejscie w prawa krawedz -> teleportacja na lewa strone
+    else if (x < 0) x = szerokosc - 1; // wejscie w lewa krawedz -> teleporatcja na prawa strone
+    if (y >= wysokosc) y = 0; // wejscie w dolna krawdz -> teleportacja u gory
+    else if (y < 0) y = wysokosc - 1; // wejscie w gorna krawdz -> teleportacja do dolu
+
+    
+
+    // zbieranie punktow
+    if (x == wsp_owocu_X && y == wsp_owocu_Y)
+    {
+        wynik += 10; // wybrano wartosc 10 za jeden owoc
+        wsp_owocu_X = rand() % szerokosc; // losowanie wspolrzednej x
+        wsp_owocu_Y = rand() % wysokosc; // losowanie wspolrzednej y
+        
+    }
+}
